@@ -1,8 +1,8 @@
 {
-  "name": "websockets-socket.io",
-  "version": "1.0.0",
+  "name": "molkky-app-server",
+  "version": "0.1.0",
   "engines": {
-    "node": "12.x"
+    "node": "16.13.x"
   },
   "description": "",
   "main": "index.js",
