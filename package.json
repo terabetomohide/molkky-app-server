@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "PORT=3111 node server.js",
+    "dev": "APP_PORT=3111 node server.js",
     "start": "node server.js"
   },
   "keywords": [],

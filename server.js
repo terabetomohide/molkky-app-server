@@ -11,11 +11,11 @@ const server = http.Server(app);
 
 const defaultOrigin = "http://localhost:3000";
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.APP_PORT || 3000;
 
-const ORIGIN = process.env.ORIGIN || defaultOrigin;
+const origin = process.env.APP_ORIGIN || defaultOrigin;
 
-app.use(cors({ORIGIN}))
+app.use(cors({origin}))
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -25,8 +25,8 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-server.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+server.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
 
 app.get('/game/:gameId', (req, res) => {
@@ -44,7 +44,7 @@ app.get('/game/:gameId', (req, res) => {
 
 const io = socketIo(server,{
   cors: {
-    origin: ORIGIN,
+    origin,
     methods: ["GET", "POST"],
     credentials: true
   }
